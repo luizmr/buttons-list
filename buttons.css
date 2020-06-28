@@ -1,0 +1,784 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.container li {
+    list-style: none;
+    margin: 100px auto;
+}
+/* Hamburger Menu */
+
+.button {
+    padding: 10px 8px;
+    background-color: black;
+    border: none;
+
+    border-radius: 10px;
+}
+.button > .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin-bottom: 4px;
+    background-color: white;
+}
+.button > .bar:last-child {
+    margin-bottom: 0;
+}
+
+/* Indication for a checkbox */
+
+.indication input:checked + label {
+    background-color: orange;
+}
+
+/* Download Button */
+
+.downloadButton {
+    height: 64px;
+    display: inline-block;
+    font-family: Verdana;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    color: #342;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.downloadButton:hover {
+    box-shadow: 0 0 10px #342;
+}
+.downloadButton .icon {
+    margin-right: 6px;
+}
+.downloadButton .primary,
+.downloadButton .secondary {
+    display: block;
+    padding: 0 32px;
+    line-height: 64px;
+    transition: margin 0.4s;
+}
+.downloadButton .primary {
+    background-color: #342;
+    color: #fff;
+    border-radius: 10px;
+}
+.downloadButton:hover .primary {
+    margin-top: -64px;
+}
+
+/* Border animation using SVG */
+
+.borderSVG {
+    position: relative;
+
+    margin: 0 auto;
+    width: 320px;
+}
+.borderSVG .svg-shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 6px;
+    fill: transparent;
+
+    stroke: tomato;
+    border-bottom: 5px solid black;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+.borderSVG .text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 8px;
+    color: tomato;
+    top: -48px;
+    position: relative;
+    text-align: center;
+}
+.borderSVG:hover .svg-shape {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 760;
+}
+
+/* Glow Effect Button */
+
+.glowButton {
+    position: relative;
+    text-align: center;
+}
+.glowButton .glowHover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+.glowButton .glowHover:before {
+    content: "";
+    background: linear-gradient(
+        135deg,
+        #fd1d1d,
+        #d62976,
+        #fa7e1e,
+        #feda75,
+        #48ff00,
+        #00ffd5,
+        #4f5bd5,
+        #7a00ff,
+        #962fbf,
+        #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: 102%;
+    height: 108%;
+    animation: moving-gradient 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+.glowButton .glowHover:active {
+    color: #000;
+}
+.glowButton .glowHover:active:after {
+    opacity: 0;
+}
+.glowButton .glowHover:hover:before {
+    opacity: 1;
+}
+.glowButton .glowHover:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+@keyframes moving-gradient {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Menu Icon animation */
+
+.menu-trigger,
+.menu-trigger span {
+    display: inline-block;
+    transition: all 0.4s;
+}
+.menu-trigger {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 10px;
+}
+.menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 80%;
+    margin-left: 5px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+.menu-trigger span:nth-last-of-type(1) {
+    top: 10px;
+}
+.menu-trigger span:nth-last-of-type(2) {
+    top: 22.5px;
+}
+.menu-trigger span:nth-last-of-type(3) {
+    bottom: 10px;
+}
+#menu01:hover span:nth-of-type(1) {
+    transform: translateY(-12px) rotate(-135deg);
+    background-color: tomato;
+}
+#menu01:hover span:nth-last-of-type(2) {
+    opacity: 0;
+}
+#menu01:hover span:nth-of-type(3) {
+    transform: translateY(14px) rotate(135deg);
+    background-color: tomato;
+}
+
+/* Gradient Button */
+
+.gradientButton {
+    position: relative;
+    text-align: center;
+}
+
+.gradientButton .btn {
+    border: none;
+    margin: 20px;
+    padding: 24px;
+    width: 220px;
+    font-family: Verdana;
+    text-transform: uppercase;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    background-size: 200%;
+    transition: 0.6s;
+}
+.gradientButton .btn1 {
+    background-image: linear-gradient(to left, #ffc312, #ee5a24, #ffc312);
+}
+.gradientButton .btn:hover {
+    background-position: right;
+}
+
+/* Hover Effect 4 options button */
+
+.cardButton {
+    position: relative;
+    height: 50px;
+    width: 200px;
+}
+.cardButton .multiButton {
+    z-index: 0;
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    border-radius: 40%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+}
+.cardButton .multiButton button {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 100%;
+    background: #5d9cec;
+    color: white;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+}
+.cardButton .multiButton button:hover {
+    background: white;
+    color: #5d9cec;
+}
+.cardButton .multiButton button:first-child:nth-last-child(1):nth-child(1),
+.cardButton .multiButton button:first-child:nth-last-child(1) ~ *:nth-child(1) {
+    left: 25%;
+    top: 25%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(2):nth-child(1),
+.cardButton .multiButton button:first-child:nth-last-child(2) ~ *:nth-child(1) {
+    left: 37.5%;
+    top: 18.75%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(2):nth-child(2),
+.cardButton .multiButton button:first-child:nth-last-child(2) ~ *:nth-child(2) {
+    left: 18.75%;
+    top: 37.5%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(3):nth-child(1),
+.cardButton .multiButton button:first-child:nth-last-child(3) ~ *:nth-child(1) {
+    left: 50%;
+    top: 15.625%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(3):nth-child(2),
+.cardButton .multiButton button:first-child:nth-last-child(3) ~ *:nth-child(2) {
+    left: 25%;
+    top: 25%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(3):nth-child(3),
+.cardButton .multiButton button:first-child:nth-last-child(3) ~ *:nth-child(3) {
+    left: 15.625%;
+    top: 50%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(4):nth-child(1),
+.cardButton .multiButton button:first-child:nth-last-child(4) ~ *:nth-child(1) {
+    left: 62.5%;
+    top: 18.75%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(4):nth-child(2),
+.cardButton .multiButton button:first-child:nth-last-child(4) ~ *:nth-child(2) {
+    left: 37.5%;
+    top: 18.75%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(4):nth-child(3),
+.cardButton .multiButton button:first-child:nth-last-child(4) ~ *:nth-child(3) {
+    left: 18.75%;
+    top: 37.5%;
+}
+.cardButton .multiButton button:first-child:nth-last-child(4):nth-child(4),
+.cardButton .multiButton button:first-child:nth-last-child(4) ~ *:nth-child(4) {
+    left: 18.75%;
+    top: 62.5%;
+}
+.cardButton .mainButton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #5d9cec;
+    color: white;
+    cursor: pointer;
+}
+.mainButton h3 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+.cardButton:hover .multiButton,
+.cardButton .multiButton:focus-within {
+    width: 10rem;
+    height: 10rem;
+}
+
+/* Checkbox Button Design Black Neumorphism */
+
+.checkBlackButton {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 240px;
+    background: linear-gradient(0deg, #000, #0c0c0c);
+}
+.checkBlackButton li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+    margin: 15px;
+}
+.checkBlackButton li label {
+    position: relative;
+}
+.checkBlackButton li label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkBlackButton li label .iconBox {
+    width: 60px;
+    height: 60px;
+    background-color: #101010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #000;
+    transition: 0.5s;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.iconBox .fa {
+    font-size: 25px;
+    color: #222;
+    transition: 0.5s;
+}
+.checkBlackButton li label input[type="checkbox"]:checked ~ .iconBox {
+    background: #000;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(33, 156, 243, 0.5),
+        0 0 20px rgba(33, 156, 243, 0.5), 0 0 30px rgba(33, 156, 243, 0.5),
+        inset 0 0 10px rgba(33, 156, 243, 1);
+}
+
+.checkBlackButton li label input[type="checkbox"]:checked ~ .iconBox .fa {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(33, 156, 243, 1), 0 0 10px rgba(33, 156, 243, 1);
+}
+
+/* Neon Light Button */
+
+.neonLight {
+    position: relative;
+    text-align: center;
+}
+.neonLight a {
+    padding: 20px 80px;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    border: 1px solid #03e9f4;
+    outline: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Georgia;
+}
+.neonLight a:hover {
+    background: #03e9f4;
+    color: #fff;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
+}
+
+/* Social media Buttons with Hover effect */
+
+.socialButtons .btn,
+.socialButtons .btn:before,
+.socialButtons .btn .fa {
+    transition: all 0.35s;
+    transition-timing-function: cubic-bezier(0.3, -0.1, 0.4, 1.6);
+}
+.socialButtons .btn:before {
+    top: 90%;
+    left: -110%;
+}
+.socialButtons .btn .fa {
+    transform: scale(0.8);
+}
+.socialButtons .btn.facebook:before {
+    background-color: #3b5998;
+}
+.socialButtons .btn.facebook .fa {
+    color: #3b5998;
+}
+.socialButtons .btn.twitter:before {
+    background-color: #3cf;
+}
+.socialButtons .btn.twitter .fa {
+    color: #3cf;
+}
+.socialButtons .btn.google:before {
+    background-color: #dc4a38;
+}
+.socialButtons .btn.google .fa {
+    color: #dc4a38;
+}
+.socialButtons .btn.dribbble:before {
+    background-color: #f26798;
+}
+.socialButtons .btn.dribbble .fa {
+    color: #f26798;
+}
+.socialButtons .btn.skype:before {
+    background-color: #00aff0;
+}
+.socialButtons .btn.skype .fa {
+    color: #00aff0;
+}
+.socialButtons .btn.linkedin:before {
+    background-color: #2867b2;
+}
+.socialButtons .btn.linkedin .fa {
+    color: #2867b2;
+}
+.socialButtons .btn:focus:before,
+.socialButtons .btn:hover:before {
+    top: -10%;
+    left: -10%;
+}
+.socialButtons .btn:focus .fa,
+.socialButtons .btn:hover .fa {
+    color: #fff;
+    transform: scale(1);
+}
+.socialButtons {
+    height: 90px;
+    margin: auto;
+    font-size: 0;
+    text-align: center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.socialButtons .btn {
+    display: inline-block;
+    background-color: #fff;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    margin: 0 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+.socialButtons .btn:before {
+    content: "";
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    transform: rotate(45deg);
+}
+.socialButtons .btn .fa {
+    font-size: 38px;
+    vertical-align: middle;
+}
+
+/* Bubbble Nav Bar */
+
+.bubbleNav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.bubbleNav ul li {
+    color: goldenrod;
+    font-size: 16px;
+    border: 0.3em solid goldenrod;
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+}
+.bubbleNav ul li span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: goldenrod;
+    transform: translateY(150%);
+    border-radius: 50%;
+    transition: 0.5s;
+    z-index: -1;
+    left: calc((var(--n) - 1) * 25%);
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+}
+.bubbleNav ul li:hover {
+    color: black;
+}
+.bubbleNav ul li:hover span {
+    transform: translateY(0) scale(2);
+}
+.bubbleNav ul li span:nth-child(1) {
+    --n: 1;
+}
+.bubbleNav ul li span:nth-child(2) {
+    --n: 2;
+}
+.bubbleNav ul li span:nth-child(3) {
+    --n: 3;
+}
+.bubbleNav ul li span:nth-child(4) {
+    --n: 4;
+}
+
+/* Snake border and neon light effect Buttons */
+
+.snakeButtons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.snakeButtons a {
+    color: #03e9f4;
+    display: inline-block;
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin: 20px 40px;
+    padding: 24px 30px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+.snakeButtons a:nth-child(1) {
+    filter: hue-rotate(290deg);
+}
+.snakeButtons a:nth-child(3) {
+    filter: hue-rotate(110deg);
+}
+.snakeButtons a:hover {
+    background-color: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+        0 0 200px #03e9f4;
+    color: rgb(255, 255, 255, 0.7);
+}
+.snakeButtons a span {
+    display: block;
+    position: absolute;
+}
+.snakeButtons a span:nth-child(1) {
+    animation: animate1 1s linear infinite;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    height: 10px;
+    left: -100px;
+    top: 0;
+    width: 100%;
+}
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+.snakeButtons a span:nth-child(2) {
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    height: 100%;
+    right: 0;
+    top: -100%;
+    width: 8px;
+}
+@keyframes animate2 {
+    0% {
+        top: -100%;
+    }
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+.snakeButtons a span:nth-child(3) {
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    height: 6px;
+    right: -100px;
+    bottom: 0;
+    width: 100%;
+}
+@keyframes animate3 {
+    0% {
+        right: -100%;
+    }
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+.snakeButtons a span:nth-child(4) {
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    height: 100%;
+    left: 0;
+    bottom: -100%;
+    width: 4px;
+}
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+/* Day and Bight Button */
+
+.dnButton {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.dnButton p {
+    font-family: Verdana;
+    color: #092c3e;
+}
+.dnButton input[type="checkbox"] {
+    -webkit-appearance: none;
+    display: none;
+    visibility: hidden;
+}
+.dnButton input[type="checkbox"]:checked ~ .check:before {
+    transform: translateX(-50px);
+}
+.dnButton input[type="checkbox"]:checked ~ .check {
+    background-color: #fff;
+    box-shadow: 0 0 0 50000px #092c3e;
+}
+.dnButton input[type="checkbox"]:checked ~ .check:after {
+    transform: translateX(0);
+}
+.dnButton .check:before,
+.dnButton .check:after {
+    border-radius: 50%;
+    content: "";
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    transition: transform 0.5s ease;
+    width: 16px;
+}
+.dnButton .check:before {
+    background-color: #fff;
+    left: 2px;
+}
+.dnButton .check {
+    background-color: #092c3e;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.5s ease-in, box-shadow 0.5s ease-in;
+    width: 40px;
+}
+.dnButton .check:after {
+    background-color: #092c3e;
+    right: 2px;
+    transform: translateX(50px);
+}
